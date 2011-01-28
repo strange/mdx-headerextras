@@ -37,9 +37,9 @@ class HeaderExtrasProcessor(markdown.treeprocessors.Treeprocessor):
         return node
 
     def _make_id(self, s):
+        s = s.strip()
         s = s.replace(' ', '_')
         s = ALPHANUM_RE.sub('', s)
         s = s.lower()
-        s = s.strip()
         s = s.replace('_', '-')
         return '%s%s' % (self.prefix, s)
